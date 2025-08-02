@@ -19,24 +19,14 @@ class SubOperationTest {
     fun testSub() {
         CPU.setRegister(1, 5)
         CPU.setRegister(2, 2)
-        operation.execute(1, 2, 3)
+        operation.execute(0x123)
         assertEquals(3, CPU.getRegister(3))
         assertEquals(2, CPU.programCounter)
 
         CPU.setRegister(1, -5)
         CPU.setRegister(2, 10)
-        operation.execute(1, 2, 4)
+        operation.execute(0x124)
         assertEquals(-15, CPU.getRegister(4))
         assertEquals(4, CPU.programCounter)
-    }
-
-    @Test
-    fun testSubNullRegisters() {
-        assertFailsWith<IllegalArgumentException> {
-            operation.execute(1, null, 3)
-        }
-        assertFailsWith<IllegalArgumentException> {
-            operation.execute(1, 2, null)
-        }
     }
 }

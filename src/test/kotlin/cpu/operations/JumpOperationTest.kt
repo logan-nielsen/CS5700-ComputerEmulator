@@ -17,11 +17,11 @@ class JumpOperationTest {
     @Test
     fun testJump() {
         CPU.setRegister(1, 10)
-        operation.execute(1, null, null)
-        assertEquals(10, CPU.programCounter)
+        operation.execute(0x100)
+        assertEquals(0x100, CPU.programCounter)
 
         CPU.setRegister(2, 20)
-        operation.execute(2, null, null)
-        assertEquals(20, CPU.programCounter)
+        operation.execute(0x200)
+        assertEquals(0x200, CPU.programCounter)
     }
 }

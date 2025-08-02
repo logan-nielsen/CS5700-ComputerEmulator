@@ -1,10 +1,12 @@
 package org.example.cpu.operations
 
 import org.example.cpu.CPU
+import org.example.cpu.parseRegister
 
 class ReadTimerOperation: Operation {
-    override fun execute(register1: Int, register2: Int?, register3: Int?) {
-        CPU.setRegister(register1, CPU.timer)
-        CPU.programCounter += 2
+    override fun execute(instructionData: Int) {
+        val register = parseRegister(instructionData, 1)
+        CPU.setRegister(register, CPU.timer)
+        CPU.incrementProgramCounter()
     }
 }

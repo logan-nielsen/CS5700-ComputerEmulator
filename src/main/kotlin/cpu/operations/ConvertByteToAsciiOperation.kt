@@ -1,10 +1,12 @@
 package org.example.cpu.operations
 
 import org.example.cpu.CPU
+import org.example.cpu.parseRegister
 
 class ConvertByteToAsciiOperation: Operation {
-    override fun execute(register1: Int, register2: Int?, register3: Int?) {
-        requireNotNull(register2)
+    override fun execute(instructionData: Int) {
+        val register1 = parseRegister(instructionData, 1)
+        val register2 = parseRegister(instructionData, 2)
 
         val register1Value = CPU.getRegister(register1)
         require(register1Value >= 0 && register1Value <= 0xf) { "Register 1 must be between 1 and 0xF" }
@@ -17,6 +19,6 @@ class ConvertByteToAsciiOperation: Operation {
 
         CPU.setRegister(register2, asciiVal.code)
 
-        CPU.programCounter += 2
+        CPU.incrementProgramCounter()
     }
 }

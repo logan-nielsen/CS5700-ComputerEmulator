@@ -18,7 +18,7 @@ class SwitchMemoryOperationTest {
 
     @Test
     fun testSwitchFromRamToRom() {
-        operation.execute(0, null, null)
+        operation.execute(0x0)
         assertEquals(MemoryType.ROM, CPU.memoryType)
         assertEquals(2, CPU.programCounter)
     }
@@ -26,7 +26,7 @@ class SwitchMemoryOperationTest {
     @Test
     fun testSwitchFromRomToRam() {
         CPU.memoryType = MemoryType.ROM
-        operation.execute(0, null, null)
+        operation.execute(0x0)
         assertEquals(MemoryType.RAM, CPU.memoryType)
         assertEquals(2, CPU.programCounter)
     }

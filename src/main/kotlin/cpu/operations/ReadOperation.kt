@@ -1,12 +1,15 @@
 package org.example.cpu.operations
 
 import org.example.cpu.CPU
+import org.example.cpu.parseRegister
 
 class ReadOperation: Operation {
-    override fun execute(register1: Int, register2: Int?, register3: Int?) {
-        val readValue = CPU.getRegister(CPU.address)
-        CPU.setRegister(register1, readValue)
+    override fun execute(instructionData: Int) {
+        val register = parseRegister(instructionData, 1)
 
-        CPU.programCounter += 2
+        val readValue = CPU.getRegister(CPU.address)
+        CPU.setRegister(register, readValue)
+
+        CPU.incrementProgramCounter()
     }
 }

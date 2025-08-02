@@ -7,8 +7,8 @@ abstract class Memory(size: Int) {
         return data[address]
     }
 
-    fun load(data: IntArray) {
-        this.data.copyInto(data)
+    fun load(newData: IntArray) {
+        newData.copyInto(data)
     }
 
     abstract fun write(address: Int, value: Int)

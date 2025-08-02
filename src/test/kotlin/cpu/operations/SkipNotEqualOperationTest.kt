@@ -19,19 +19,12 @@ class SkipNotEqualOperationTest {
     fun testSkipNotEqual() {
         CPU.setRegister(1, 5)
         CPU.setRegister(2, 3)
-        operation.execute(1, 2, null)
+        operation.execute(0x120)
         assertEquals(4, CPU.programCounter)
 
         CPU.setRegister(1, 5)
         CPU.setRegister(2, 5)
-        operation.execute(1, 2, null)
+        operation.execute(0x120)
         assertEquals(6, CPU.programCounter)
-    }
-
-    @Test
-    fun testSkipNotEqualNullRegister() {
-        assertFailsWith<IllegalArgumentException> {
-            operation.execute(1, null, null)
-        }
     }
 }

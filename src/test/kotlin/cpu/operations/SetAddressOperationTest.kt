@@ -17,12 +17,12 @@ class SetAddressOperationTest {
 
     @Test
     fun testSetAddress() {
-        operation.execute(42, null, null)
-        assertEquals(42, CPU.address)
+        operation.execute(0x421)
+        assertEquals(0x421, CPU.address)
         assertEquals(2, CPU.programCounter)
 
-        operation.execute(100, null, null)
-        assertEquals(100, CPU.address)
+        operation.execute(0x100)
+        assertEquals(0x100, CPU.address)
         assertEquals(4, CPU.programCounter)
     }
 }

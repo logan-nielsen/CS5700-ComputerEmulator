@@ -1,13 +1,17 @@
 package org.example.cpu.operations
 
 import org.example.cpu.CPU
+import org.example.cpu.parseByte
+import org.example.cpu.parseRegister
 
 class StoreOperation: Operation {
-    override fun execute(register1: Int, register2: Int?, register3: Int?) {
-        requireNotNull(register2)
-        CPU.setRegister(register2, register1)
+    override fun execute(instructionData: Int) {
+        val register = parseRegister(instructionData, 1)
+        val byte = parseByte(instructionData, 2)
 
-        CPU.programCounter += 2
+        CPU.setRegister(register, byte)
+
+        CPU.incrementProgramCounter()
     }
 
 }

@@ -17,12 +17,12 @@ class SetTimerOperationTest {
 
     @Test
     fun testSetTimer() {
-        operation.execute(5, null, null)
-        assertEquals(5, CPU.timer)
+        operation.execute(0x050)
+        assertEquals(0x05, CPU.timer)
         assertEquals(2, CPU.programCounter)
 
-        operation.execute(10, null, null)
-        assertEquals(10, CPU.timer)
+        operation.execute(0xff0)
+        assertEquals(0xff, CPU.timer)
         assertEquals(4, CPU.programCounter)
     }
 }

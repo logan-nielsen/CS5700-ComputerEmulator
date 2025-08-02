@@ -1,10 +1,11 @@
 package org.example.cpu.operations
 
 import org.example.cpu.CPU
+import org.example.cpu.parseByte
 
 class SetTimerOperation: Operation {
-    override fun execute(register1: Int, register2: Int?, register3: Int?) {
-        CPU.timer = register1
-        CPU.programCounter += 2
+    override fun execute(instructionData: Int) {
+        CPU.timer = parseByte(instructionData, 1)
+        CPU.incrementProgramCounter()
     }
 }

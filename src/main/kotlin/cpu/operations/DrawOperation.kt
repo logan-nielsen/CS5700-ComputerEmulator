@@ -1,12 +1,14 @@
 package org.example.cpu.operations
 
 import org.example.cpu.CPU
+import org.example.cpu.parseRegister
 import org.example.display.DisplayData
 
 class DrawOperation: Operation {
-    override fun execute(register1: Int, register2: Int?, register3: Int?) {
-        requireNotNull(register2)
-        requireNotNull(register3)
+    override fun execute(instructionData: Int) {
+        val register1 = parseRegister(instructionData, 1)
+        val register2 = parseRegister(instructionData, 2)
+        val register3 = parseRegister(instructionData, 3)
 
         DisplayData.drawCharacter(
             character = register1.toChar(),
@@ -14,6 +16,6 @@ class DrawOperation: Operation {
             col = register3
         )
 
-        CPU.programCounter += 2
+        CPU.incrementProgramCounter()
     }
 }

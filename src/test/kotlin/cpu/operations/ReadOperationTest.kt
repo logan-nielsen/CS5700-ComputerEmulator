@@ -18,13 +18,13 @@ class ReadOperationTest {
     fun testRead() {
         CPU.address = 1
         CPU.setRegister(1, 10)
-        operation.execute(2, null, null)
+        operation.execute(0x200)
         assertEquals(10, CPU.getRegister(2))
         assertEquals(2, CPU.programCounter)
 
         CPU.address = 2
         CPU.setRegister(2, 20)
-        operation.execute(3, null, null)
+        operation.execute(0x300)
         assertEquals(20, CPU.getRegister(3))
         assertEquals(4, CPU.programCounter)
     }

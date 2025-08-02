@@ -16,23 +16,15 @@ class StoreOperationTest {
     @Test
     fun testStore() {
         val operation = StoreOperation()
-        operation.execute(42, 1, null)
-        assertEquals(42, CPU.getRegister(1))
+        operation.execute(0x142)
+        assertEquals(0x42, CPU.getRegister(1))
         assertEquals(2, CPU.programCounter)
 
-        operation.execute(0, 2, null)
+        operation.execute(0x200)
         assertEquals(0, CPU.getRegister(2))
         assertEquals(4, CPU.programCounter)
 
-        operation.execute(-26, 1, null)
-        assertEquals(-26, CPU.getRegister(1))
-    }
-
-    @Test
-    fun testStoreNullRegister() {
-        val operation = StoreOperation()
-        assertFailsWith<IllegalArgumentException> {
-            operation.execute(42, null, null)
-        }
+        operation.execute(0x126)
+        assertEquals(0x26, CPU.getRegister(1))
     }
 }

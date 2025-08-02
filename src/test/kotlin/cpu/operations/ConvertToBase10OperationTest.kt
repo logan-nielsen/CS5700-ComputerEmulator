@@ -18,7 +18,7 @@ class ConvertToBase10OperationTest {
     @Test
     fun testConvertToBase10() {
         CPU.setRegister(1, 0x2A)
-        operation.execute(1, null, null)
+        operation.execute(0x100)
 
         assertEquals('4'.code, ComputerMemory.getMemory(CPU.memoryType).read(CPU.address))
         assertEquals('2'.code, ComputerMemory.getMemory(CPU.memoryType).read(CPU.address + 1))
@@ -28,7 +28,7 @@ class ConvertToBase10OperationTest {
     @Test
     fun testConvertToBase10MultiDigit() {
         CPU.setRegister(2, 0x3039)
-        operation.execute(2, null, null)
+        operation.execute(0x200)
 
         assertEquals('1'.code, ComputerMemory.getMemory(CPU.memoryType).read(CPU.address))
         assertEquals('2'.code, ComputerMemory.getMemory(CPU.memoryType).read(CPU.address + 1))

@@ -1,10 +1,11 @@
 package org.example.cpu.operations
 
 import org.example.cpu.CPU
+import org.example.cpu.parseAddress
 
 class SetAddressOperation: Operation {
-    override fun execute(register1: Int, register2: Int?, register3: Int?) {
-        CPU.address = register1
-        CPU.programCounter += 2
+    override fun execute(instructionData: Int) {
+        CPU.address = parseAddress(instructionData)
+        CPU.incrementProgramCounter()
     }
 }
