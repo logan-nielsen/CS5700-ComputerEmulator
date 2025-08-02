@@ -7,7 +7,7 @@ object ComputerMemory {
         "ROM" to ROM(1024),
     )
 
-    public fun getMemory(type: MemoryType): Memory {
+    fun getMemory(type: MemoryType): Memory {
         return memory[type.name]!!
     }
 }

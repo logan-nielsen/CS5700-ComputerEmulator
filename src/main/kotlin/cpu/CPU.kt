@@ -59,12 +59,20 @@ object CPU {
     private val registers = IntArray(8)
 
     fun executeNextInstruction() {
-        if (!paused) {
-            val rom = ComputerMemory.getMemory(MemoryType.ROM)
-            val instruction = rom.read(programCounter)
-            val opcode = instruction and 0xF000
-            val operation = OperationFactory.create(opcode)
-            operation.execute(instruction and 0x0FFF)
+        try {
+            if (!paused) {
+                val rom = ComputerMemory.getMemory(MemoryType.ROM)
+                val instructionPart1 = rom.read(programCounter)
+                val instructionPart2 = rom.read(programCounter + 1)
+                val instruction = ((instructionPart1 and 0xFF) shl 8) or (instructionPart2 and 0xFF)
+
+                val operation = OperationFactory.create(instruction)
+                operation.execute(instruction and 0x0FFF)
+            }
+        } catch (e: Exception) {
+            println("Error executing instruction at ${programCounter/2}:")
+            println(e.stackTraceToString())
+            stop()
         }
     }
 

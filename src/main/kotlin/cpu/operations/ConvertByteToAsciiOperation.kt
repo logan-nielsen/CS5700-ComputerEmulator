@@ -8,16 +8,10 @@ class ConvertByteToAsciiOperation: Operation {
         val register1 = parseRegister(instructionData, 1)
         val register2 = parseRegister(instructionData, 2)
 
-        val register1Value = CPU.getRegister(register1)
-        require(register1Value >= 0 && register1Value <= 0xf) { "Register 1 must be between 1 and 0xF" }
+        val register1Value = CPU.getRegister(register1).toChar()
+        require(register1Value <= 'F') { "Register 1's value 0x$register1Value must not be greater than 0xF" }
 
-        val asciiVal = if (register1Value < 10) {
-            ('0'.code + register1Value).toChar()
-        } else {
-            ('a'.code + (register1Value - 10)).toChar()
-        }
-
-        CPU.setRegister(register2, asciiVal.code)
+        CPU.setRegister(register2, register1Value.code)
 
         CPU.incrementProgramCounter()
     }

@@ -11,9 +11,9 @@ class DrawOperation: Operation {
         val register3 = parseRegister(instructionData, 3)
 
         DisplayData.drawCharacter(
-            character = register1.toChar(),
+            character = CPU.getRegister(register1).toChar(),
             row = register2,
-            col = register3
+            col = register3,
         )
 
         CPU.incrementProgramCounter()

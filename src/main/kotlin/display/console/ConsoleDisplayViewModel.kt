@@ -21,7 +21,7 @@ class ConsoleDisplayViewModel: ConsoleDisplayViewModelSubject, DisplayDataObserv
     }
 
     override fun update(newData: List<List<Char>>) {
-        data = newData.joinToString(separator = "\n") { it.joinToString(separator = " ") }
+        data = newData.joinToString(separator = "\n") { it.joinToString(separator = "") }
         notifyObservers()
     }
 }

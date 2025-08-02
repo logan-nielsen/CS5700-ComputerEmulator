@@ -10,8 +10,7 @@ import java.io.File
 class Computer {
     fun runProgram() {
         println("Enter the path to the ROM file:")
-//        val romPath = ConsoleUserInput.get()
-        val romPath = "roms/addition.out"
+        val romPath = ConsoleUserInput.get()
 
         val romBytes = File(romPath).readBytes()
         val romData = romBytes.map { it.toInt() }.toIntArray()

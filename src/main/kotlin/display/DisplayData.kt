@@ -1,10 +1,10 @@
 package org.example.display
 
 object DisplayData: DisplayDataSubject {
-    const val rows = 0x7f
-    const val cols = 0x7f
+    const val ROWS = 0xf
+    const val COLS = 0xf
 
-    private val data = Array(rows) { CharArray(cols) }
+    private val data = Array(ROWS) { CharArray(COLS) }
 
     private val observers = mutableListOf<DisplayDataObserver>()
 
@@ -26,8 +26,8 @@ object DisplayData: DisplayDataSubject {
     }
 
     fun drawCharacter(character: Char, row: Int, col: Int) {
-        require(row > 0x00 && row <= 0x7f) { "Row must be between 0x00 and 0x7F" }
-        require(col > 0x00 && col <= 0x7f) { "Col must be between 0x00 and 0x7F" }
+        require(row >= 0x00 && row <= ROWS) { "Row must be between 0x0 and 0xF" }
+        require(col >= 0x00 && col <= COLS) { "Col must be between 0x0 and 0xF" }
 
         data[row][col] = character
 
