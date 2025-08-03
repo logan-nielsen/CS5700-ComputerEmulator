@@ -1,9 +1,9 @@
 package memory
 
+import org.example.memory.ROM
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
-import org.example.memory.ROM
 
 class ROMTest {
     @Test

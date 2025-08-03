@@ -1,10 +1,15 @@
 package cpu.operations
 
-import io.mockk.*
-import kotlin.test.*
+import io.mockk.every
+import io.mockk.mockkObject
+import io.mockk.unmockkAll
 import org.example.cpu.CPU
 import org.example.cpu.operations.ReadKeyboardOperation
 import org.example.display.userinput.ConsoleUserInput
+import kotlin.test.AfterTest
+import kotlin.test.BeforeTest
+import kotlin.test.Test
+import kotlin.test.assertEquals
 
 class ReadKeyboardOperationTest {
     private lateinit var operation: ReadKeyboardOperation

@@ -1,8 +1,8 @@
 package memory
 
+import org.example.memory.RAM
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import org.example.memory.RAM
 
 class RAMTest {
     @Test

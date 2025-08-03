@@ -1,12 +1,12 @@
 package cpu.operations
 
-import kotlin.test.Test
-import kotlin.test.assertEquals
 import org.example.cpu.CPU
 import org.example.cpu.operations.ReadOperation
 import org.example.cpu.operations.WriteOperation
 import org.example.memory.MemoryType
 import kotlin.test.BeforeTest
+import kotlin.test.Test
+import kotlin.test.assertEquals
 
 class ReadAndWriteOperationTest {
     private val readOperation = ReadOperation()

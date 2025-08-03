@@ -1,11 +1,11 @@
 package cpu.operations
 
-import kotlin.test.Test
-import kotlin.test.assertEquals
-import kotlin.test.assertFailsWith
 import org.example.cpu.CPU
 import org.example.cpu.operations.ConvertByteToAsciiOperation
 import kotlin.test.BeforeTest
+import kotlin.test.Test
+import kotlin.test.assertEquals
+import kotlin.test.assertFailsWith
 
 class ConvertByteToAsciiOperationTest {
     private val operation = ConvertByteToAsciiOperation()

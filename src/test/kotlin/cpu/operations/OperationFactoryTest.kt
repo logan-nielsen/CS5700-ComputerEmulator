@@ -1,9 +1,26 @@
 package cpu.operations
 
+import org.example.cpu.operations.AddOperation
+import org.example.cpu.operations.ConvertByteToAsciiOperation
+import org.example.cpu.operations.ConvertToBase10Operation
+import org.example.cpu.operations.DrawOperation
+import org.example.cpu.operations.JumpOperation
+import org.example.cpu.operations.OperationFactory
+import org.example.cpu.operations.ReadKeyboardOperation
+import org.example.cpu.operations.ReadOperation
+import org.example.cpu.operations.ReadTimerOperation
+import org.example.cpu.operations.SetAddressOperation
+import org.example.cpu.operations.SetTimerOperation
+import org.example.cpu.operations.SkipEqualOperation
+import org.example.cpu.operations.SkipNotEqualOperation
+import org.example.cpu.operations.StopOperation
+import org.example.cpu.operations.StoreOperation
+import org.example.cpu.operations.SubOperation
+import org.example.cpu.operations.SwitchMemoryOperation
+import org.example.cpu.operations.WriteOperation
 import kotlin.test.Test
-import kotlin.test.assertIs
 import kotlin.test.assertFailsWith
-import org.example.cpu.operations.*
+import kotlin.test.assertIs
 
 class OperationFactoryTest {
     @Test

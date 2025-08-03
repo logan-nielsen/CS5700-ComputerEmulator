@@ -1,10 +1,10 @@
 package cpu.operations
 
-import kotlin.test.Test
-import kotlin.test.assertEquals
 import org.example.cpu.CPU
 import org.example.cpu.operations.ReadTimerOperation
 import kotlin.test.BeforeTest
+import kotlin.test.Test
+import kotlin.test.assertEquals
 
 class ReadTimerOperationTest {
     private val operation = ReadTimerOperation()

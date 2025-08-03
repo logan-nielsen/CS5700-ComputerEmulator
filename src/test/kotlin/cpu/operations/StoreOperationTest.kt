@@ -1,11 +1,10 @@
 package cpu.operations
 
-import kotlin.test.Test
-import kotlin.test.assertEquals
-import kotlin.test.assertFailsWith
 import org.example.cpu.CPU
 import org.example.cpu.operations.StoreOperation
 import kotlin.test.BeforeTest
+import kotlin.test.Test
+import kotlin.test.assertEquals
 
 class StoreOperationTest {
     @BeforeTest

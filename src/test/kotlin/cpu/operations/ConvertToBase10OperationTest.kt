@@ -1,11 +1,11 @@
 package cpu.operations
 
-import kotlin.test.Test
-import kotlin.test.assertEquals
 import org.example.cpu.CPU
 import org.example.cpu.operations.ConvertToBase10Operation
 import org.example.memory.ComputerMemory
 import kotlin.test.BeforeTest
+import kotlin.test.Test
+import kotlin.test.assertEquals
 
 class ConvertToBase10OperationTest {
     private val operation = ConvertToBase10Operation()
