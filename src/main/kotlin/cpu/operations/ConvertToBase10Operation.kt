@@ -8,7 +8,7 @@ class ConvertToBase10Operation: Operation {
     override fun execute(instructionData: Int) {
         val register = parseRegister(instructionData, 1)
         val register1Value = CPU.getRegister(register)
-        val convertedValue = register1Value.toString(10)
+        val convertedValue = register1Value.toString(10).padStart(3, '0')
 
         for ((index, digit) in convertedValue.withIndex()) {
             val nextAddress = CPU.address + index

@@ -1,10 +1,10 @@
 package org.example.memory
 
 object ComputerMemory {
-    private val memory = mapOf<String, Memory>(
-        // TODO: Fix the size
-        "RAM" to RAM(1024),
-        "ROM" to ROM(1024),
+    private val memory = mapOf(
+        // 4 kb each
+        "RAM" to RAM(4000),
+        "ROM" to ROM(4000),
     )
 
     fun getMemory(type: MemoryType): Memory {
