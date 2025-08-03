@@ -20,8 +20,8 @@ class ConvertToBase10OperationTest {
         CPU.setRegister(1, 0x2A)
         operation.execute(0x100)
 
-        assertEquals('4'.code, ComputerMemory.getMemory(CPU.memoryType).read(CPU.address))
-        assertEquals('2'.code, ComputerMemory.getMemory(CPU.memoryType).read(CPU.address + 1))
+        assertEquals(4, ComputerMemory.getMemory(CPU.memoryType).read(CPU.address))
+        assertEquals(2, ComputerMemory.getMemory(CPU.memoryType).read(CPU.address + 1))
         assertEquals(2, CPU.programCounter)
     }
 
@@ -30,11 +30,11 @@ class ConvertToBase10OperationTest {
         CPU.setRegister(2, 0x3039)
         operation.execute(0x200)
 
-        assertEquals('1'.code, ComputerMemory.getMemory(CPU.memoryType).read(CPU.address))
-        assertEquals('2'.code, ComputerMemory.getMemory(CPU.memoryType).read(CPU.address + 1))
-        assertEquals('3'.code, ComputerMemory.getMemory(CPU.memoryType).read(CPU.address + 2))
-        assertEquals('4'.code, ComputerMemory.getMemory(CPU.memoryType).read(CPU.address + 3))
-        assertEquals('5'.code, ComputerMemory.getMemory(CPU.memoryType).read(CPU.address + 4))
+        assertEquals(1, ComputerMemory.getMemory(CPU.memoryType).read(CPU.address))
+        assertEquals(2, ComputerMemory.getMemory(CPU.memoryType).read(CPU.address + 1))
+        assertEquals(3, ComputerMemory.getMemory(CPU.memoryType).read(CPU.address + 2))
+        assertEquals(4, ComputerMemory.getMemory(CPU.memoryType).read(CPU.address + 3))
+        assertEquals(5, ComputerMemory.getMemory(CPU.memoryType).read(CPU.address + 4))
         assertEquals(2, CPU.programCounter)
     }
 }

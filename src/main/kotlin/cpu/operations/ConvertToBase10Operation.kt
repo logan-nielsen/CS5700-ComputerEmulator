@@ -13,7 +13,7 @@ class ConvertToBase10Operation: Operation {
         for ((index, digit) in convertedValue.withIndex()) {
             val nextAddress = CPU.address + index
             val memory = ComputerMemory.getMemory(CPU.memoryType)
-            memory.write(nextAddress, digit.code)
+            memory.write(nextAddress, digit.digitToInt())
         }
 
         CPU.incrementProgramCounter()
