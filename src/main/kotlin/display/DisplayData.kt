@@ -1,8 +1,8 @@
 package org.example.display
 
 object DisplayData: DisplayDataSubject {
-    const val ROWS = 0xf
-    const val COLS = 0xf
+    const val ROWS = 0x8
+    const val COLS = 0x8
 
     private val data = Array(ROWS) { CharArray(COLS) }
 
