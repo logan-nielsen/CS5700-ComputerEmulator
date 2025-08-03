@@ -5,20 +5,17 @@ import org.example.memory.ComputerMemory
 import org.example.memory.MemoryType
 import java.util.concurrent.Executors
 import java.util.concurrent.ScheduledExecutorService
-import java.util.concurrent.ScheduledFuture
 import java.util.concurrent.TimeUnit
 
 object CPU {
     val executor: ScheduledExecutorService = Executors.newSingleThreadScheduledExecutor()
-    val cpuFuture: ScheduledFuture<*>
-    val timerFuture: ScheduledFuture<*>
 
     var paused = true
 
     init {
         val cpuRunnable = Runnable(::executeNextInstruction)
 
-        cpuFuture = executor.scheduleAtFixedRate(
+        executor.scheduleAtFixedRate(
             cpuRunnable,
             0,
             2L, // repeat frequency - every 2 ms
@@ -28,7 +25,7 @@ object CPU {
 
         val timerRunnable = Runnable(::decrementTimer)
 
-        timerFuture = executor.scheduleAtFixedRate(
+        executor.scheduleAtFixedRate(
             timerRunnable,
             0,
             16L, // repeat frequency - every 16 ms
@@ -38,19 +35,19 @@ object CPU {
 
     var programCounter: Int = 0x000
         set(value) {
-            require(field % 2 == 0) { "Program counter value must be even" }
+            require(value % 2 == 0) { "Program counter value must be even" }
             field = value
         }
 
     var timer: Int = 0
         set(value) {
-            require(field >= 0) { "Timer value cannot be negative" }
+            require(value >= 0) { "Timer value cannot be negative" }
             field = value
         }
 
     var address: Int = 0x000
         set(value) {
-            require(field >= 0) { "Address value cannot be negative" }
+            require(value >= 0) { "Address value cannot be negative" }
             field = value
         }
 

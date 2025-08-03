@@ -15,6 +15,13 @@ class JumpOperationTest {
     }
 
     @Test
+    fun testJumpToInvalidAddress() {
+        kotlin.test.assertFailsWith<IllegalArgumentException> {
+            operation.execute(0x101)
+        }
+    }
+
+    @Test
     fun testJump() {
         CPU.setRegister(1, 10)
         operation.execute(0x100)

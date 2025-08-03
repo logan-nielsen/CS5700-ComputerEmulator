@@ -33,4 +33,10 @@ object DisplayData: DisplayDataSubject {
 
         notifyObservers()
     }
+
+    fun getCharacter(row: Int, col: Int): Char {
+        require(row >= 0x00 && row <= ROWS) { "Row must be between 0x0 and 0xF" }
+        require(col >= 0x00 && col <= COLS) { "Col must be between 0x0 and 0xF" }
+        return data[row][col]
+    }
 }

@@ -39,4 +39,12 @@ class ConvertByteToAsciiOperationTest {
         assertEquals('f'.code, CPU.getRegister(2))
         assertEquals(8, CPU.programCounter)
     }
+
+    @Test
+    fun testInvalidValueGreaterThanF() {
+        CPU.setRegister(1, 0x10)
+        assertFailsWith<IllegalArgumentException> {
+            operation.execute(0x120)
+        }
+    }
 }
