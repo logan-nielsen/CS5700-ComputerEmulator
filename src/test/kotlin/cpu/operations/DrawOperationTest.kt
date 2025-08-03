@@ -7,8 +7,6 @@ import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
 class DrawOperationTest {
-    private lateinit var op: DrawOperation
-
     @Test
     fun testDraw() {
         CPU.programCounter = 0
